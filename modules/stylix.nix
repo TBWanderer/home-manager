@@ -23,9 +23,9 @@
 			};
 		};
 		cursor = {
-			name = "Vimix-Cursors";
-			size = 24;
-			package = pkgs.vimix-cursor-theme;
+			name = "Banana";
+			size = 30;
+			package = pkgs.banana-cursor;
 		};
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 		polarity = "dark";
