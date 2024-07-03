@@ -9,6 +9,7 @@
 	'';
 	programs.fish.loginShellInit = "Hyprland";
 	programs.fish.shellAliases = {
+		Hyprland = "nixGL Hyprland";
 		q = "exit";
 		l = "ls -a -F";
 		ls = "eza --icons";
