@@ -1,3 +1,3 @@
 {
-  imports = [ ./stylix.nix ./other.nix ./hypr.nix ];
+  imports = [ ./stylix.nix ./other.nix ./hypr.nix ./forkgram.nix ];
 }
