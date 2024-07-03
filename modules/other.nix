@@ -21,7 +21,6 @@
 		light = "brightnessctl s";
 	};
 	programs.starship.enable = true;
-	programs.swaylock.enable = true;
 	programs.waybar  = {
 		enable = true;
 		style = ''
