@@ -101,25 +101,39 @@
 			    workspace_swipe = true
 			}
 			
-			
 			$mainMod = SUPER 
+
+			bind = $mainMod, C, killactive, 
+			bind = $mainMod SHIFT, L, exec, swaylock
+			bind = $mainMod, O, pin
+			bind = $mainMod, f, togglefloating, 
+			bind = $mainMod, P, pseudo,
+			bind = ALT $mainMod, P, exec, power
+			bind = $mainMod, M, exit
+			bind = $mainMod, y, togglesplit,
+			bind = $mainMod, u, fullscreen,
 			
-			bind = $mainMod, Return, exec, $terminal
-			bind = $mainMod, C, killactive,
-			bind = $mainMod, M, exit,
-			bind = $mainMod, E, exec, $fileManager
-			bind = $mainMod, R, exec, $menu
+			
+			bind = $mainMod, RETURN, exec, alacritty
+			bind = $mainMod, E, exec, nemo
+			bind = ALT, SPACE, exec, rofi -show run
+			bind = $mainMod, R, exec, rofi -show drun
 			bind = $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
-			bind = alt, space, exec, rofi -show run
-			bind = $mainMod, P, pseudo, 
-			bind = $mainMod, J, togglesplit, 
 			
+			bind = , PRINT, exec, grim -g"$(slurp)" - | wl-copy
+			bind = $mainMod, I, exec, grim -g"$(slurp)" -l 0 /home/proggerx/screen.png
+			bind = CTRL, PRINT, exec, rm -rf /home/proggerx/screen-record.mp4 && wf-recorder -g"$(slurp)" --file ~/screen-record.mp4
+			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
 			
-			bind = $mainMod, left, movefocus, l
-			bind = $mainMod, right, movefocus, r
-			bind = $mainMod, up, movefocus, u
-			bind = $mainMod, down, movefocus, d
+			bind = $mainMod, h, movefocus, l
+			bind = $mainMod, l, movefocus, r
+			bind = $mainMod, k, movefocus, u
+			bind = $mainMod, j, movefocus, d
 			
+			bind = $mainMod CTRL SHIFT, h, movewindow, l
+			bind = $mainMod CTRL SHIFT, l, movewindow, r
+			bind = $mainMod CTRL SHIFT, k, movewindow, u
+			bind = $mainMod CTRL SHIFT, j, movewindow, d
 			
 			bind = $mainMod, 1, workspace, 1
 			bind = $mainMod, 2, workspace, 2
@@ -132,7 +146,6 @@
 			bind = $mainMod, 9, workspace, 9
 			bind = $mainMod, 0, workspace, 10
 			
-			
 			bind = $mainMod SHIFT, 1, movetoworkspace, 1
 			bind = $mainMod SHIFT, 2, movetoworkspace, 2
 			bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -144,18 +157,20 @@
 			bind = $mainMod SHIFT, 9, movetoworkspace, 9
 			bind = $mainMod SHIFT, 0, movetoworkspace, 10
 			
-			
-			bind = $mainMod, S, togglespecialworkspace, magic
-			bind = $mainMod SHIFT, S, movetoworkspace, special:magic
-			
-			
 			bind = $mainMod, mouse_down, workspace, e+1
 			bind = $mainMod, mouse_up, workspace, e-1
-			
 			
 			bindm = $mainMod, mouse:272, movewindow
 			bindm = $mainMod, mouse:273, resizewindow
 			
+			# Ресайз
+			bind = $mainMod CTRL, h, resizeactive,-50 0
+			bind = $mainMod CTRL, l, resizeactive,50 0
+			bind = $mainMod CTRL, k, resizeactive,0 -50
+			bind = $mainMod CTRL, j, resizeactive,0 50
+			
+			bind = $mainMod CTRL, p, exec, powermenu
+
 			windowrulev2 = suppressevent maximize, class:.* 
 		'';
 	};
