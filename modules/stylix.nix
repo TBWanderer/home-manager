@@ -23,9 +23,9 @@
 			};
 		};
 		cursor = {
-			name = "Banana";
-			size = 30;
-			package = pkgs.banana-cursor;
+			name = "Fuchsia-Pop";
+			size = 24;
+			package = (pkgs.fuchsia-cursor.override { themeVariants = ["Fuchsia-Pop"]; sizeVariants = ["24"]; platformVariants = ["x11"];});
 		};
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 		polarity = "dark";
