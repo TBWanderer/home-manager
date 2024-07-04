@@ -39,7 +39,7 @@
 
     			modules-center  = ["hyprland/window"];
     			modules-left  = ["hyprland/workspaces"];
-    			modules-right  = ["tray" "custom/brightness" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
+    			modules-right  = ["tray" "cpu" "memory" "custom/brightness" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
 
 				"hyprland/workspaces" = {
 					format = "{icon}";
@@ -65,6 +65,26 @@
 				"tray" = {
         			spacing = 5;
         			icon-size = 15;
+
+    			};
+
+				
+				"cpu" = {
+        			interval = 1;
+        			format = " {usage}%"; # Icon: microchip
+        			states = {
+            			"warning" = 70;
+            			"critical" = 90;
+        			};
+    			};
+
+    			"memory" = {
+    	    	"interval" = 5;
+				"format" = " {}%";# Icon: memory
+        		"states" = {
+            		"warning" = 70;
+            		"critical" = 90;
+        			};
     			};
 
 				"clock" = {
