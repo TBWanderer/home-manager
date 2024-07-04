@@ -97,7 +97,7 @@
     			};
 
 				"custom/battery" = {
-					exec = "☀️${../battery_module.sh}";
+					exec = "${../battery_module.sh}";
 					interval = 5;
 					format = {};
 				};
