@@ -9,7 +9,7 @@
 			$fileManager = dolphin
 			$menu = rofi -show drun
 			
-			exec-once = ${../lockscreen.sh}
+			exec-once = $../scripts/lockscreen.sh}
 			exec-once = /usr/bin/waybar
 			exec-once = nixGL wpaperd
 			exec-once = wl-paste --watch cliphist store
@@ -106,7 +106,7 @@
 			$mainMod = SUPER 
 
 			bind = $mainMod, C, killactive 
-			bind = $mainMod SHIFT, L, exec, ${../lockscreen.sh}
+			bind = $mainMod SHIFT, L, exec, $../scripts/lockscreen.sh}
 			bind = $mainMod, O, pin
 			bind = $mainMod, f, togglefloating, 
 			bind = $mainMod, P, pseudo,
