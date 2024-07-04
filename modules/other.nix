@@ -37,10 +37,9 @@
 				margin-top = 5;
 				margin-bottom = 5;
 
-    			modules-center  = ["hyprland/window"];
+    			modules-center  = ["hyprland/window" "custom/cava"];
     			modules-left  = ["hyprland/workspaces"];
-    			modules-right  = ["tray" "cpu" "memory" "custom/brightness" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
-
+    			modules-right  = ["tray" "cpu" "memory" "custom/brightness" "custom/pipewire" "custom/battery" "hyprland/language" "clock"];
 				"hyprland/workspaces" = {
 					format = "{icon}";
 					on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -71,7 +70,7 @@
 				
 				"cpu" = {
         			interval = 1;
-        			format = " {usage}%"; # Icon: microchip
+        			format = " {usage}%";
         			states = {
             			"warning" = 70;
             			"critical" = 90;
@@ -80,7 +79,7 @@
 
     			"memory" = {
     	    	"interval" = 5;
-				"format" = " {}%";# Icon: memory
+				"format" = " {}%";
         		"states" = {
             		"warning" = 70;
             		"critical" = 90;
@@ -105,7 +104,7 @@
     				format-ru = "RU";
 				};
 
-				"custom/alsa" = {
+				"custom/alsa" = { # Old version
     				format = "{}";
 					exec = "sleep 0.05 && echo $(pamixer --get-mute)$(pamixer --get-volume) | sed 's/true/ /' | sed 's/false/ /'";
 					on-click = "pamixer -t; pkill -x -RTMIN+11 waybar; ";
@@ -115,10 +114,23 @@
 					interval = 1;
 					tooltip = true;
     			};
+				
+				
+        		
+        		"custom/pipewire" = let pamixer = "${pkgs.pamixer}/bin/pamixer"; in {
+            		format = "{}";
+          			exec = "sleep 0.05 && echo $(${pamixer} --get-mute)$(${pamixer} --get-volume) | sed 's/true/ /' | sed 's/false/ /'";
+          			on-click = "${pamixer} -t; pkill -x -RTMIN+11 waybar";
+        			on-scroll-up = "${pamixer} -i2; pkill -x -RTMIN+11 waybar";
+          			on-scroll-down = "${pamixer} -d2; pkill -x -RTMIN+11 waybar";
+          			signal = 11;
+          			interval = 5;
+          			tooltip = false;
+          		};
 
 				"custom/battery" = {
 					exec = "${../battery_module.sh}";
-					interval = 5;
+					interval = 2;
 					format = {};
 				};
 				
@@ -127,6 +139,15 @@
 					interval = 5;
 					on-scroll-up = "${../brightness_module} raise > /dev/null && ${../brightness_module} get";
 					on-scroll-down = "${../brightness_module} lower > /dev/null && ${../brightness_module} get";
+				};
+
+				"custom/cava" = {
+					format = "{}";
+					return-type = "text";
+					max-length = 40;
+					escape = true;
+					tooltip = false;
+					exec = "${import ./cava.nix { inherit pkgs; }}/bin/cava_waybar";
 				};
 			};
 		};
