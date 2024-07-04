@@ -103,7 +103,7 @@
 				};
 				
 				"custom/brightness" = {
-					exec = "echo '☀️ $(${../brightness_module} get)'";
+					exec = "${../brightness_module} get";
 					interval = 5;
 					on-scroll-up = "${../brightness_module} raise > /dev/null && ${../brightness_module} get";
 					on-scroll-down = "${../brightness_module} lower > /dev/null && ${../brightness_module} get";
