@@ -39,7 +39,7 @@
 
     			modules-center  = ["hyprland/window"];
     			modules-left  = ["hyprland/workspaces"];
-    			modules-right  = ["tray" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
+    			modules-right  = ["tray" "custom/brightness" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
 
 				"hyprland/workspaces" = {
 					format = "{icon}";
@@ -100,6 +100,13 @@
 					exec = "${../battery_module.sh}";
 					interval = 5;
 					format = {};
+				};
+				
+				"custom/brightness" = {
+					exec = "${../brightness_module} get";
+					interval = 5;
+					on-scroll-up = "${../brightness_module} raise > /dev/null && ${../brightness_module} get";
+					on-scroll-down = "${../brightness_module} lower > /dev/null && ${../brightness_module} get";
 				};
 			};
 		};
