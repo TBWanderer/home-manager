@@ -25,9 +25,7 @@
 		style = ''
 			* {
 				border-radius: 10px;
-			}
-			clock {
-				margin-right: 10px;
+				padding-right: 5px;
 			}
 		'';
 		settings = {
@@ -35,13 +33,13 @@
     			position = "top";
     			height = 45;
     			width = 1900;
-    			spacing = 10;
+    			spacing = 15;
 				margin-top = 5;
 				margin-bottom = 5;
 
     			modules-center  = ["hyprland/window"];
     			modules-left  = ["hyprland/workspaces"];
-    			modules-right  = ["tray" "custom/alsa" "battery" "custom/charging" "hyprland/language" "clock"];
+    			modules-right  = ["tray" "custom/alsa" "custom/battery" "hyprland/language" "clock"];
 
 				"hyprland/workspaces" = {
 					format = "{icon}";
@@ -97,20 +95,8 @@
 					tooltip = true;
     			};
 
-				"battery" = {
-					bat = "BAT0";
-	    			interval = 5;
-					states = {
-						warning = 30;
-						critical = 15;
-					};
-					format = "{capacity}% {icon}";
-					format-icons = [" " " " " " " " " "];
-	    			max-length = 25;
-				};
-
-				"custom/charging" = {
-					exec = ''if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]; then echo '󱐋'; fi'';
+				"custom/battery" = {
+					exec = "${../battery_module.sh}";
 					interval = 5;
 					format = {};
 				};
