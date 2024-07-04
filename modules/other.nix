@@ -7,6 +7,9 @@
 	programs.fish.interactiveShellInit = ''
 		set fish_greeting
 	'';
+	programs.fish.loginShellInit = ''
+		nixGL Hyprland
+	'';
 	programs.fish.shellAliases = {
 		q = "exit";
 		l = "ls -a -F";
