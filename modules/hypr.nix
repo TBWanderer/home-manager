@@ -9,7 +9,7 @@
 			$fileManager = dolphin
 			$menu = rofi -show drun
 			
-			exec-once = waybar
+			exec-once = /usr/bin/waybar
 			exec-once = nixGL wpaperd
 			exec-once = wl-paste --watch cliphist store
 			
