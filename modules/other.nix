@@ -119,7 +119,7 @@
         		
         		"custom/pipewire" = let pamixer = "${pkgs.pamixer}/bin/pamixer"; in {
             		format = "{}";
-          			exec = "sleep 0.05 && echo $(${pamixer} --get-mute)$(${pamixer} --get-volume) | sed 's/true/ /' | sed 's/false/ /'";
+          			exec = "sleep 0.05 && echo $(${pamixer} --get-mute)$(${pamixer} --get-volume) | sed 's/true/󰸈 /' | sed 's/false/󰕾 /'";
           			on-click = "${pamixer} -t; pkill -x -RTMIN+11 waybar";
         			on-scroll-up = "${pamixer} -i2; pkill -x -RTMIN+11 waybar";
           			on-scroll-down = "${pamixer} -d2; pkill -x -RTMIN+11 waybar";
@@ -144,7 +144,7 @@
 				"custom/cava" = {
 					format = "{}";
 					return-type = "text";
-					max-length = 40;
+					max-length = 60;
 					escape = true;
 					tooltip = false;
 					exec = "${import ./cava.nix { inherit pkgs; }}/bin/cava_waybar";
