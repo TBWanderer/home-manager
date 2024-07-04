@@ -97,13 +97,13 @@
     			};
 
 				"custom/battery" = {
-					exec = "${../battery_module.sh}";
+					exec = "☀️${../battery_module.sh}";
 					interval = 5;
 					format = {};
 				};
 				
 				"custom/brightness" = {
-					exec = "${../brightness_module} get";
+					exec = "echo '☀️ $(${../brightness_module} get)'";
 					interval = 5;
 					on-scroll-up = "${../brightness_module} raise > /dev/null && ${../brightness_module} get";
 					on-scroll-down = "${../brightness_module} lower > /dev/null && ${../brightness_module} get";
