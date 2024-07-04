@@ -6,6 +6,7 @@
 		opacity = {
 			terminal = 0.8;
 			desktop = 0.8;
+			applications = 0.8;
 		};
 		fonts = rec {
 			sizes = {

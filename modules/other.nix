@@ -74,6 +74,7 @@
 
 				"hyprland/window" = {
     				format = "{}";
+
     				separate-outputs = false;
     				max-length = 20;
 				};
