@@ -15,10 +15,11 @@
 			
 			general { 
 			    gaps_in = 5
-			    gaps_out = 20
+			    gaps_out = 10
 			
 			    border_size = 1
-			    
+				
+
 			    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
 			    col.inactive_border = rgba(595959aa)
 			    
@@ -31,10 +32,10 @@
 			
 			
 			decoration {
-			    rounding = 5
+			    rounding = 10
 			    
-			    active_opacity = 1.0
-			    inactive_opacity = 1.0
+			    active_opacity = 0.9
+			    inactive_opacity = 0.9
 			
 			    drop_shadow = true
 			    shadow_range = 4
@@ -63,7 +64,7 @@
 			    animation = borderangle, 1, 8, default
 			    animation = fade, 1, 7, default
 			    animation = workspaces, 1, 6, default
-			}
+		}
 			
 			
 			dwindle {
@@ -108,7 +109,6 @@
 			bind = $mainMod, O, pin
 			bind = $mainMod, f, togglefloating, 
 			bind = $mainMod, P, pseudo,
-			bind = ALT $mainMod, P, exec, power
 			bind = $mainMod, M, exit
 			bind = $mainMod, y, togglesplit,
 			bind = $mainMod, u, fullscreen,
@@ -121,8 +121,7 @@
 			bind = $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 			
 			bind = , PRINT, exec, grim -g"$(slurp)" - | wl-copy
-			bind = $mainMod, I, exec, grim -g"$(slurp)" -l 0 /home/proggerx/screen.png
-			bind = CTRL, PRINT, exec, rm -rf /home/proggerx/screen-record.mp4 && wf-recorder -g"$(slurp)" --file ~/screen-record.mp4
+			bind = $mainMod, I, exec, grim -g"$(slurp)" -l 0 /home/x/screen.png
 			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
 			
 			bind = $mainMod, h, movefocus, l

@@ -28,6 +28,7 @@
 			package = (pkgs.fuchsia-cursor.override { themeVariants = ["Fuchsia-Pop"]; sizeVariants = ["24"]; platformVariants = ["x11"];});
 		};
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-		polarity = "dark";
+		
+		# polarity = "dark";
 	};
 }

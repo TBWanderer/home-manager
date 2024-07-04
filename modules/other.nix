@@ -7,9 +7,7 @@
 	programs.fish.interactiveShellInit = ''
 		set fish_greeting
 	'';
-	programs.fish.loginShellInit = "nixGL Hyprland";
 	programs.fish.shellAliases = {
-		Hyprland = "nixGL Hyprland";
 		q = "exit";
 		l = "ls -a -F";
 		ls = "eza --icons";
@@ -28,15 +26,19 @@
 			* {
 				border-radius: 10px;
 			}
+			clock {
+				margin-right: 10px;
+			}
 		'';
 		settings = {
 			bar = {
     			position = "top";
-
     			height = 45;
-    			width = 1895;
+    			width = 1900;
     			spacing = 10;
-				margin-top = 10;
+				margin-top = 5;
+				margin-bottom = 5;
+
 
     			modules-center  = ["hyprland/window"];
     			modules-left  = ["hyprland/workspaces"];
@@ -65,12 +67,12 @@
 
 				"tray" = {
         			spacing = 10;
-        			icon-size = 15;
+        			icon-size = 20;
     			};
 
 				"clock" = {
-        			"format" = "{:%H:%M}   ";
-        			"format-alt" = "{:%Y-%m-%d}   ";
+        			"format" = "{:%H:%M}";
+        			"format-alt" = "{:%Y-%m-%d}";
     			};
 
 				"hyprland/window" = {
@@ -104,7 +106,7 @@
 						critical = 15;
 					};
 					format = "{capacity}% {icon}";
-					format-icons = ["" "" "" "" ""];
+					format-icons = [" " " " " " " " " "];
 	    			max-length = 25;
 				};
 
