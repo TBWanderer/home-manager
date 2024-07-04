@@ -40,8 +40,8 @@
 				margin-top = 5;
 				margin-bottom = 5;
 
-    			modules-center  = ["hyprland/window" "custom/cava"];
-    			modules-left  = ["hyprland/workspaces"];
+    			modules-center  = ["custom/cava"];
+    			modules-left  = ["hyprland/window" "hyprland/workspaces"];
     			modules-right  = ["tray" "cpu" "memory" "custom/brightness" "custom/pipewire" "custom/battery" "hyprland/language" "clock"];
 				"hyprland/workspaces" = {
 					format = "{icon}";
@@ -132,16 +132,16 @@
           		};
 
 				"custom/battery" = {
-					exec = "${../battery_module.sh}";
+					exec = "$../scripts/battery_module.sh}";
 					interval = 2;
 					format = {};
 				};
 				
 				"custom/brightness" = {
-					exec = "${../brightness_module} get";
+					exec = "$../scripts/brightness_module} get";
 					interval = 5;
-					on-scroll-up = "${../brightness_module} raise > /dev/null && ${../brightness_module} get";
-					on-scroll-down = "${../brightness_module} lower > /dev/null && ${../brightness_module} get";
+					on-scroll-up = "$../scripts/brightness_module} raise > /dev/null && $../scripts/brightness_module} get";
+					on-scroll-down = "$../scripts/brightness_module} lower > /dev/null && $../scripts/brightness_module} get";
 				};
 
 				"custom/cava" = {
