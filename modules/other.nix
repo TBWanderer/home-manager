@@ -39,7 +39,6 @@
 				margin-top = 5;
 				margin-bottom = 5;
 
-
     			modules-center  = ["hyprland/window"];
     			modules-left  = ["hyprland/workspaces"];
     			modules-right  = ["tray" "custom/alsa" "battery" "custom/charging" "hyprland/language" "clock"];
