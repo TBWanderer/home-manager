@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-	home.packages = [pkgs.alacritty pkgs.vesktop pkgs.clang-tools pkgs.nixd pkgs.lazygit];
+	home.packages = [pkgs.mpv pkgs.alacritty pkgs.vesktop pkgs.clang-tools pkgs.nixd pkgs.lazygit];
 	programs.wpaperd.enable = true;
 	programs.alacritty.enable = true;
 	programs.fish.enable = true;
@@ -20,7 +20,7 @@
 		c = "clear";
 		o = "nvim";
 		vim = "nvim";
-		rebuild = "home-manager switch --flake /home/x/.config/home-manager/";
+		update = "home-manager switch --flake /home/x/.config/home-manager/";
 		light = "brightnessctl s";
 	};
 	programs.starship.enable = true;
@@ -41,7 +41,7 @@
 				margin-top = 5;
 				margin-bottom = 5;
 
-    			modules-center  = ["custom/cava"];
+    			modules-center  = ["bluetooth" "custom/cava" "network"];
     			modules-left  = ["hyprland/workspaces" "hyprland/window"];
     			modules-right  = ["tray" "cpu" "memory" "custom/brightness" "custom/pipewire" "custom/battery" "hyprland/language" "clock"];
 				"hyprland/workspaces" = {
@@ -89,6 +89,30 @@
             		"critical" = 90;
         			};
     			};
+
+				"network" = {
+					"interface" = "wlo1";
+    				"format-wifi" = " ";
+    				"format-ethernet" = " ";
+    				"format-disconnected" = " ";
+    				"tooltip-format-wifi" = "{essid} ({signalStrength}%)  ";
+    				"tooltip-format-ethernet" = "{ifname}  ";
+    				"tooltip-format-disconnected" = "Disconnected";
+				};
+				
+				"bluetooth" = {
+					"format" = "󰀃 ";
+					"format-connected" = "󱔸 ";
+					"format-connected-battery" = "󱔸 ";
+					# "format-device-preference" = [ "device1", "device2" ], // preference list deciding the displayed device
+					
+					"tooltip-format" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+					"tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+					"tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
+					"tooltip-format-enumerate-connected-battery" = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+					
+					"onclick" = "blueman-manager";
+				};
 
 				"clock" = {
         			"format" = "{:%H:%M}";

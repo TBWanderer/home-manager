@@ -9,7 +9,7 @@
 			$fileManager = dolphin
 			$menu = rofi -show drun
 			
-			exec-once = $../scripts/lockscreen.sh}
+			exec-once = ${../scripts/lockscreen.sh}
 			exec-once = /usr/bin/waybar
 			exec-once = nixGL wpaperd
 			exec-once = wl-paste --watch cliphist store
@@ -106,10 +106,9 @@
 			$mainMod = SUPER 
 
 			bind = $mainMod, C, killactive 
-			bind = $mainMod SHIFT, L, exec, $../scripts/lockscreen.sh}
+			bind = $mainMod SHIFT, L, exec, ${../scripts/lockscreen.sh}
 			bind = $mainMod, O, pin
 			bind = $mainMod, f, togglefloating, 
-			bind = $mainMod, P, pseudo,
 			bind = $mainMod, M, exit
 			bind = $mainMod, y, togglesplit,
 			bind = $mainMod, u, fullscreen,
@@ -124,6 +123,7 @@
 			
 			bind = , PRINT, exec, grim -g"$(slurp)" - | wl-copy
 			bind = $mainMod, I, exec, grim -g"$(slurp)" -l 0 /home/x/screen.png
+			bind = $mainMod, P, exec, grim -l 0 /home/x/Pictures/"$(date +%T_%d-%m-%Y-screen.png)"
 			bind = CTRL SHIFT, PRINT, exec, pkill wf-recorder
 			
 			bind = $mainMod, h, movefocus, l
