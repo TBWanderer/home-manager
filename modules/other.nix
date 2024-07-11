@@ -20,7 +20,7 @@
 		c = "clear";
 		o = "nvim";
 		vim = "nvim";
-		update = "echo '[.] Updating time' && sudo ntpd -qg > ${../home-manager-rebuild.log} && echo '[!] End of time updating' && home-manager switch --flake /home/x/.config/home-manager/ > ${../home-manager-rebuild.log}";
+		update = "echo '[.] Updating time' && sudo ntpd -qg && echo '[!] End of time updating' && home-manager switch --flake /home/x/.config/home-manager/";
 		light = "brightnessctl s";
 	};
 	programs.starship.enable = true;
