@@ -20,7 +20,7 @@
 		c = "clear";
 		o = "nvim";
 		vim = "nvim";
-		update = "home-manager switch --flake /home/x/.config/home-manager/";
+		update = "echo '[.] Updating time' && sudo ntpd -qg > ${../home-manager-rebuild.log} && echo '[!] End of time updating' && home-manager switch --flake /home/x/.config/home-manager/ > ${../home-manager-rebuild.log}";
 		light = "brightnessctl s";
 	};
 	programs.starship.enable = true;
@@ -30,6 +30,7 @@
 			* {
 				border-radius: 10px;
 				padding-right: 5px;
+				padding-left: 5px;
 			}
 		'';
 		settings = {
@@ -115,8 +116,9 @@
 				};
 
 				"clock" = {
-        			"format" = "{:%H:%M}";
-        			"format-alt" = "{:%Y-%m-%d}";
+        			"format" = "{:%H:%M:%S}";
+        			"format-alt" = "{:%d.%m.%y}";
+					"interval" = 1;
     			};
 
 				"hyprland/window" = {
