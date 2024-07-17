@@ -7,6 +7,7 @@
 	programs.fish.interactiveShellInit = ''
 		set fish_greeting
 		export PATH="/home/x/.local/bin:$PATH"
+		export PATH="/home/x/.nix-profile/bin:$PATH"
 	'';
 	programs.fish.loginShellInit = ''
 		nixGL Hyprland
