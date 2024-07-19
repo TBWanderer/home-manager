@@ -115,6 +115,7 @@
 			
 			
 			bind = $mainMod, RETURN, exec, nixGL alacritty msg create-window || nixGL alacritty
+			bind = $mainMod, A, exec, cool-retro-term --fullscreen
 
 			bind = $mainMod, E, exec, nemo
 			bind = ALT, SPACE, exec, rofi -show run

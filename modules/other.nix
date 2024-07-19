@@ -10,6 +10,8 @@
 		export PATH="/home/x/.nix-profile/bin:$PATH"
 	'';
 	programs.fish.loginShellInit = ''
+		export PATH="/home/x/.local/bin:$PATH"
+		export PATH="/home/x/.nix-profile/bin:$PATH"
 		nixGL Hyprland
 	'';
 	programs.fish.shellAliases = {
@@ -32,6 +34,7 @@
 				border-radius: 10px;
 				padding-right: 5px;
 				padding-left: 5px;
+				color: #cad3f5;
 			}
 		'';
 		settings = {
@@ -93,7 +96,7 @@
     			};
 
 				"network" = {
-					"interface" = "wlo1";
+					"interface" = ["wlan0" "enp4s0"];
     				"format-wifi" = " ";
     				"format-ethernet" = " ";
     				"format-disconnected" = " ";
